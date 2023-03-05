@@ -10,3 +10,26 @@
 function abs(x) {
     return x > 0 ? x : x === 0 ? 0 : -x;
 }
+
+/**
+ * create conditional expression
+ *
+ */
+function createConditionalExpression(predicate, consequent, alternative) {
+    if (predicate) return consequent
+    else return alternative
+}
+
+function abs_(x) {
+    return createConditionalExpression(
+        x > 0,
+        x,
+        createConditionalExpression(
+            x === 0,
+            0,
+            -x
+        )
+    )
+}
+
+console.log(abs_(-5))
